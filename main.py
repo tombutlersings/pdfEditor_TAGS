@@ -3,16 +3,9 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
-from pdfrw import PdfReader, PdfWriter
 import pprint
 from PyPDF2 import PdfFileReader, PdfFileMerger
-import file_evaluator
-import PyPDF2
-import re
 from file_evaluator import ActiveOrAll
-import glob
-from format_pdf_title import FormatPdfTitles
-import glob
 from Pdf import Pdf
 from meta_title_creator import meta_title_creator
 from pdf_list_of_files import pdf_list_of_files

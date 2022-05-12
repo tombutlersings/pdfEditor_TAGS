@@ -1,4 +1,4 @@
-# TODO: start of my new code 4-26-2022
+# Finished May 12, 2022
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import io
 from reportlab.pdfgen import canvas

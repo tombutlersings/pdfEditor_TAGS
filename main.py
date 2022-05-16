@@ -27,35 +27,35 @@ def main():
         p1.setFileName(pdf_list_of_names[pdf_num])
         p1.setFileLoc(UNFINISHED_FOLDER, p1.filename)
         p1.meta_title = meta_title_creator(p1.filename)
-
-        # in this part we will also define our font color and the font size:
+        p1.makePdf()
+        #  TODO in this part we will also define our font color and the font size:
         # FROM: https://dev.to/stokry/edit-pdf-files-with-python-1e1j
-        packet = io.BytesIO()
-        can = canvas.Canvas(packet, pagesize=letter)
-        can.setFillColorRGB(1, 0, 0)
-        can.setFont("Times-Roman", 14)
-        can.drawString(72, 655, "Hello from Python")
-        can.save()
-        # Then we move to the beginning of the StringIO buffer:
-        packet.seek(0)
-        unedited_pdf_name = p1.file_location
-        unedited_pdf_name.replace("_", " ")  # Swaps '_' for space
-        unedited_pdf_name.replace(".pdf", " ")  # Swaps '_' for space
-        existing_pdf = PdfFileReader(open(unedited_pdf_name, "rb"))
-        output = PdfFileWriter()
-
-        # figures out number of pages in the original PDF
-        pdf_pages = existing_pdf.numPages
-
-        # uses the page numbers to make sure all of them get added back to the new pdf
-        i = 0
-        while i < pdf_pages:
-            page = existing_pdf.getPage(i)
-            output.addPage(page)
-            i += 1
-        outputStream = open(p1.file_location_out, "wb")
-        output.write(outputStream)
-        outputStream.close()
+        # packet = io.BytesIO()
+        # can = canvas.Canvas(packet, pagesize=letter)
+        # can.setFillColorRGB(1, 0, 0)
+        # can.setFont("Times-Roman", 14)
+        # can.drawString(72, 655, "Hello from Python")
+        # can.save()
+        # # Then we move to the beginning of the StringIO buffer:
+        # packet.seek(0)
+        # unedited_pdf_name = p1.file_location
+        # unedited_pdf_name.replace("_", " ")  # Swaps '_' for space
+        # unedited_pdf_name.replace(".pdf", " ")  # Swaps '_' for space
+        # existing_pdf = PdfFileReader(open(unedited_pdf_name, "rb"))
+        # output = PdfFileWriter()
+        #
+        # # figures out number of pages in the original PDF
+        # pdf_pages = existing_pdf.numPages
+        #
+        # # uses the page numbers to make sure all of them get added back to the new pdf
+        # i = 0
+        # while i < pdf_pages:
+        #     page = existing_pdf.getPage(i)
+        #     output.addPage(page)
+        #     i += 1
+        # outputStream = open(p1.file_location_out, "wb")
+        # output.write(outputStream)
+        # outputStream.close()
         # Working opener and editor of metadata
         # from https://stackoverflow.com/questions/46849733/change-metadata-of-pdf-file-with-pypdf2?newreg=d1ea14de43084962a613403ee674d419
 

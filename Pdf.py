@@ -1,3 +1,5 @@
+from blank_pdf_maker import blankPdfMaker
+
 class Pdf:
 
     def __init__(self):
@@ -71,3 +73,6 @@ class Pdf:
     def printType(self):
         x = str(self.active)
         print(x)
+
+    def makePdf(self):
+        blankPdfMaker(self,self.file_location)
